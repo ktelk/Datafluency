@@ -142,21 +142,35 @@
 
 ###Tracking, Commiting and pushing your changes
 * git add <NAME>
+
 *For single file:
+
 *git add <file name>
-*
-For all modified and newly created file: use git add period
+
+*For all modified and newly created file: use git add period
+
 *git add .
+
 * check which files have been modified/get status
+
 * git status
+
 * Viewing Commiting history
+
 *git log:
+
 *git log -l
+
 *git log -p
+
 *git -p --word-diff
+
 *git --stat
+
 *git --name-status
+
 *git --oneline
+
 *gitk Open a visual commit browser
 
 
@@ -164,11 +178,17 @@ For all modified and newly created file: use git add period
 
 ###Types of Question: 
 *Framing the questions is key:
+
 *Descriptive: Pattern/trends in the data through Mean, Range, Frequency (Aggregation of data)
-*Exploratory: Building relational operations, opinion polls, variations, 
+
+*Exploratory: Building relational operations, opinion polls, variations
+
 *Inferential: Exit polls, getting inference from Exploratory data
+
 *Predictive: Modeling….
+
 *Casual: Action to Reaction, casual factor…
+
 *Mechanistic: Machine learning…..
 
 ###Big data:
