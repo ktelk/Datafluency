@@ -107,9 +107,11 @@
 ##Machine learning:
 *Hands on application in R, mathematical details, 
 
-	        Positive				Negative
-*True	Correctly identified	Correctly rejected
-*False	Incorrectly identified	Incorrectly rejected
+	        				
+*True  Positive	 Correctly identified	
+*True  Negative  Correctly rejected
+*False Positive	 Incorrectly identified	
+*False Negative  Incorrectly rejected
 				
 *Correlated predicted. Basic idea behind boosting
 ###Building data products:
