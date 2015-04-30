@@ -106,8 +106,7 @@
 *Multivariate analysis.
 ##Machine learning:
 *Hands on application in R, mathematical details, 
-
-	        				
+        				
 *TruePositive-Correctly identified	
 *TrueNegative-Correctly rejected
 *FalsePositive-Incorrectly identified	
