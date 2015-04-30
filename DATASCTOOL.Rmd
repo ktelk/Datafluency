@@ -1,0 +1,38 @@
+## Basic Command line Commands
+###pwd: For discovering the current directory
+*$ pwd
+*ls: Show the directory content (cmd-dir rest ls)
+*$ ls
+
+###cd: Changing your current directory
+*$ cd <path>
+*$ cd /Users/Rumil/Downloads (Absolute path)
+*$ cd Downloads (Relative path)
+*$ cd ~/Downloads (It will take to the right path where ever you are in folder)
+*Caution: to visualize only, do not use in scripts (use absolute path only)
+
+###mkdir: Creating directories
+*mkdir
+
+###cp : Copying files
+*If you want to copy a file into another location type:
+*$ cp origin_path destination_path
+
+*If you want to copy a folder into another location type:
+*$ cp -r origin_path destination_path
+*$ cp -r -f origin_path destination_path (Forcefully… even if no permission)
+
+###mv : Moving files
+*Works the same as ‘cp’ but deletes the original file once the new copy is made.
+*$ mv origin_path destination_path
+
+###An additional feature is that it works for renaming a file. For instance if in my working directory I have a file called example.txt I want to rename to example2.txt:
+*$ mv example.txt example2.txt
+
+###rm: Removing files
+*The command that will let us to remove a directory and all its content is
+*rm -rf
+*-r tells to rm that we want to delete the given directory and all of its contents.
+*-f tells to rm that delete the content without prompting for confirmation.
+
+###However be careful by using this command because it can’t be undone.
