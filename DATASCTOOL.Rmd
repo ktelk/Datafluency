@@ -36,3 +36,81 @@
 *-f tells to rm that delete the content without prompting for confirmation.
 
 ###However be careful by using this command because it can’t be undone.
+
+
+##First week course notes
+
+*Data science push through obstacles.
+*Criticism is part of data science
+*Challenge: not enough data/search/surplus data/filter it out. Question should come first… Data later
+
+*Follow on twitter: @bcaffo;@jtleek;@edpeng
+
+*Data deluge: easy to collect, easy to store
+
+*Big data: GPS coordinates, sequence genome,
+
+*Statistical data science: Science of learning data, 
+
+*Lucky: Internet usage; data available in internet; make interesting analysis; High profile results; Prediction & algorithms
+
+*Why R: Wide range of packages, web apps, free, development environment, connecting to developers, easy to install and play around
+
+*Who is data scientist: Daryl Morey- Basketball manager, Hilary Mason-Mining the web,  Daphne Koller-CEO of Coursera,
+
+###Goals: 
+*Hacking Skills, Math and Statistics,
+*Hacking skills: One-computer programming with R. Second-Ability to go out and answer yourself
+*Jobs: Data scientist job is growing faster
+
+###What do data scientist do?
+*Define question
+*Identify data
+*Obtain data
+*Clean data
+*Exploratory data analysis
+*Stats
+*Interpret results
+*Challenge results
+*Write up
+*Create reproducible code
+*Distribute
+
+###R- Programming language:  R studio (IDE-Integrated Development Environment), 
+*Primary type of file: R scripts, functions, R markdown documents-reproduced, repeatable, html files
+
+###Distribution control-Git hub account, commands ran through shell,
+
+###R-programming overview:
+*Data types, sub setting, debug , simulations 
+###Functions: why are they not working, detailed functions (lapply-arguments, functions) 
+###Getting and cleaning data:
+###Raw vs tidy data, how to download, how to connect to database, merging data, Raw form of data vs processed data (transforming for analysis)
+###Exploratory data analysis:
+*Graphics
+*Plotting
+*Clustering
+*Dimension reduction-ggplot 
+###Reproducible research:
+*Document the work
+*Structure
+*Organize
+*Best practices
+*Rpubs-out side organization
+###Statistical inference:
+*Generalizing information
+*Probability
+*bootstrap code
+###Regression models:
+*Communication is key- helped by regression analysis, Regression to mean, Why least square? Equations/calculus.
+*Multivariate analysis.
+##Machine learning:
+*Hands on application in R, mathematical details, 
+
+	        Positive				Negative
+True	Correctly identified	Correctly rejected
+False	Incorrectly identified	Incorrectly rejected
+				
+*Correlated predicted. Basic idea behind boosting
+###Building data products:
+*What should we do before share it? How to make interactive graphs? Shiny apps...
