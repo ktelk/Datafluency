@@ -115,3 +115,64 @@
 *Correlated predicted. Basic idea behind boosting
 ###Building data products:
 *What should we do before share it? How to make interactive graphs? Shiny apps...
+
+##Second week course notes
+
+###Git:
+*System for version control, runs on command line, helps in keep track of  files and modifications (Repository): runs on local system
+###Git hub:
+*Web site allows you to upload your repositories ,  It provides backup,  Visual interface for navigating to repose and way to navigate into repose to other people
+
+###What is git?
+*Version control system, runs from commond line,can be used alone or in a team
+
+###What is gitHub?
+* A website, can not control version, Git repos can be put online, bcking up
+##Note: Git doesnot require GitHub
+
+###Advantages of Git/GitHub
+*Data scientist write code and version can be controlled, easy to collaborate, Can contribute to open source projetcs, develops your skills.
+
+###Is Git is hard for beginners?
+*designed by programmers, Haard to know if I did right, Any actions can have serious consequences, It is command based not workflow focused.
+
+###Git commands
+* Cloning repo onto desktop:Bringing repo from Web to local
+*git clone <weblink for intended repo>
+
+###Tracking, Commiting and pushing your changes
+* git add <NAME>
+*For single file:
+*git add <file name>
+*
+For all modified and newly created file: use git add period
+*git add .
+* check which files have been modified/get status
+* git status
+* Viewing Commiting history
+*git log:
+*git log -l
+*git log -p
+*git -p --word-diff
+*git --stat
+*git --name-status
+*git --oneline
+*gitk Open a visual commit browser
+
+
+##Third week course notes
+
+###Types of Question: 
+*Framing the questions is key:
+*Descriptive: Pattern/trends in the data through Mean, Range, Frequency (Aggregation of data)
+*Exploratory: Building relational operations, opinion polls, variations, 
+*Inferential: Exit polls, getting inference from Exploratory data
+*Predictive: Modeling….
+*Casual: Action to Reaction, casual factor…
+*Mechanistic: Machine learning…..
+
+###Big data:
+Volume, Velocity, Variety, Verbosity
+
+
+
