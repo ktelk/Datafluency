@@ -108,8 +108,8 @@
 *Hands on application in R, mathematical details, 
 
 	        Positive				Negative
-True	Correctly identified	Correctly rejected
-False	Incorrectly identified	Incorrectly rejected
+*True	Correctly identified	Correctly rejected
+*False	Incorrectly identified	Incorrectly rejected
 				
 *Correlated predicted. Basic idea behind boosting
 ###Building data products:
