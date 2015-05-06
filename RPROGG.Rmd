@@ -1,0 +1,192 @@
+$\pagebreak$
+
+##Writing Code/Setting Your Working Directory
+* Getting working directory
+*getwd () ###Shows what is current working directory
+###Why knowing working directory is important?
+*R reads and write files from your working directory
+*To check files in your working directory type 
+*dir () 
+###advice  is to create a folder for the course and keep it as working directory
+*Use command ls () to know which are files/functions/data frame loaded into current working session of R
+### Loading functions/codes saved in.R extension file
+* Type source ("SOURCE FILE NAME")
+
+$\pagebreak$
+
+##Overview and History of R
+*R is a implementation of S language
+*S is developed by John Chambers and others at Bell Labs originally implemented as Fortran libraries
+*In 1988, system was written in C language
+*Version four released in 1998 and it is used currently
+*Bell labs>StatSci>Insightful Corporation (Product:S-PLUS>Acquired by TOBCO)>Lucent>Alcatel-Lucent
+*Basic behind S language is to enter an interactive environment  where we can write code and view the results
+* system helps to transition from user to programmer
+* R is created by Ross Ihaka and Robert Gentleman from New Zealand licensed in 1993 
+*1996 two mailing list developed - R-help and R-devel
+*1997 R core group was formed; syntax is similar to S+
+###Stack overflow where questions can be answered 
+###Free software
+*Freedom to run the program (Freedom 0)
+*Freedom to source code (Freedom 1)
+*Freedom to redistribute copies (Freedom 2)
+*Freedom to release changes (Freedom 3)
+###Drawbacks
+*40 year old technology
+*No 3-D graphics
+*No corporation for changes/complaints; If needed, build yourself
+*Objects needs to be stored on physical memory
+*Not ideal for all situations
+###Conceptual 1) CRAN (Comprehensive R Archived Network) 2) everything else
+*base system contains utils,stats,datasets,graphics,grdevices,grid,methods,tools,parallel,compiler,splines,tcltk,stats4
+*commonly used packages boot for bootstrap, class for *classification,cluster,codetools,foreign,KernSmooth,lattice,mgcv,nlme,rpart,survival,MASS,spatial,nnet,matirx
+###Packages in CRAN has to pass certain tests, has good documentation on functions,
+###References
+*Writing R Extensions if interested in writing packages
+*R Data Import/Export for importing data into R
+*R internals for technical understanding of R/How R implemented at very low level
+* Look for book in R by John Chambers, Springer has a series of books Use R!
+
+$\pagebreak$
+
+##Getting Help
+*Emailing is crucial, follow certain etiquettes .
+*Web, Manual, FAQ, Inspection or experimentation, talking to skilled friend, if programmer-read source code
+*Do your home work and start exploring in emails.
+*google is your friend, search with error message. Look for appropriate answer.
+* is it reproducible (provide examples), Expected output, What are you seeing unexpected results, Version of R/Packages/OS, additional info
+###For Email: Phrase smart subject line; <R version><what function/packages><Operating system><What is the problem> 
+*<Describe goal><Be explicit><provide minimum amount of information necessary><Be humble><Follow up with solution if found>
+###Please do not say found bug, Asking homework questions, Do not send to multiple mailing list, do not ask to debug your code without full information
+###For Project specific questions: r-help@r-project.org
+
+$\pagebreak$
+
+##R Console and Input and Evaluation
+* `<-` = assignment operator
+* x'<-'1 is 'r expression' also 'r object'  with 'numeric factor' associated with it
+*x prints value of x through auto-printing
+*print (x) is explicit printing
+*y'<- is incomplete expression
+*'#' indicates comment anything to the right of it will not execute
+*msg'<-' "hello" is a character vector with string associated with it
+*[1] x is a vector and 1 is the first element
+*x'<-'1:20 x is a vector with numeric elements from 1 to 20
+
+$\pagebreak$
+
+##Data Types-R Objects and Attributes
+*All the things we manipulate in R is called objects
+###5 basic automic  classes
+*character
+*numeric (real numbers)
+*integer
+*complex
+*logical (True/False)
+*'Vector' is most basic object in R and it can contain multiple copies of,
+* a single type of objects Vector of characters, vector of integers
+*Warning: Can not have mixed type of objects e.g integers and characters in same vector
+*'List' can have objects of different class (Exception to Vector)
+*Use 'vector function' to create empty vector
+*vector has two arguments (<class of the vector>,<length of the vector>) e.g  z<-vector("numeric" ,length=10)
+*'Numbers' are important objects in R if you want a numeric class to be changed to integer enter 1 with L
+*'inf' stands for infinity it is special number
+*'NAN' or 'Nan' represents undefined value/not a number or missing value
+*'Attributes' Not every object in R necessarily has attributes. Attributes can be part of an Object
+*Common attributes are names,dim names,or,dimension names,mode,class,length
+*'Class' of a object, every object will have class and every object has length
+*We have an option to add/modify attributes of the objects.
+
+$\pagebreak$
+
+##Data Types-Vectors and Lists
+*"c' function used to create vectors of objects c=concatenate things together
+*x'<-'c(0.5,0.6) a x numeric vector with two objects ,length two, first element is 0.5 and second element is 0.6 is created
+*similarly logical, character, integer and complex vectors can be created in r using 'c' function
+*'Vector' function can be used to create vectors with different class and length. x'<-'vector("class", length=)
+*When different kinds of objects are mixed in a vector, vector is created with 'least common denominator' there is no error message
+*Need to be aware of 'coercion' for mixed objects in a vector and resulting class.
+*When different objects are mixed in a vector, coercion occurs so that every element in the vector is of the same class:
+*c(1,"a") ## 'character' because least common denominator is character
+*c(TRUE,2) ## 'numeric' because R recognizes TRUE as 1 and FALSE as 0
+*c("a",TRUE) ## character because second element is considered as string
+*Objects can be 'explicitly coerced' from one class to another using the as.* functions
+*x<-1:5 # class(x) # "integer" 
+###as.numeric(x) 1 2 3 4 5
+###as.logical(x) TRUE TRUE TRUE TRUE TRUE
+###as.character(x) "1" "2" "3" "4" "5" 
+###as.complex(x)  1+0i 2+0i 3+0i 4+0i 5+0i
+*Nonsensical coercion results in Nas
+*x<-c("a","b","c") 
+### as.numeric(x)  NA NA NA because Warning message: NAs introduced by coercion  and as.logical(x) NA NA NA 
+###List is vector with different class of objects. These are very handy for further analysis (functions)
+*x'<-'list(1,"a",TRUE,1+4i) list with different class of elements. It dose not auto print as vector, Elements are indexed by double brackets [[]]
+*whereas, elements of vector are indexed by single bracket []
+
+$\pagebreak$
+
+##Data Types-Matrices
+* Matrices are vectors with a dimension attribute. 
+*Matrices are constructed 'column wise' . First column gets filled and based on maximum number of rows, second column gets filled.
+*Can also create matrix by creating 'dimension attribute' on a vector. It is by using the command dim(R object)<-c(nrow=,ncol=)
+*column binding and row-binding to create vectors by joining two vectors  <cbind(vector1,vector2) <rbind(vector1,vector2)
+
+$\pagebreak$
+
+##Data Types-Factors
+*Factor is special type of vector to represent categorical data. Factors may be Ordered or Unordered.
+*Factor as an integer/categorical/logical vector where each integer has a label.
+*Factors are treated specially by modeling functions 
+*Factors created using factor function and input is a character vector ('Important') <-factor(c(" "," "," ",,,,," ")
+*Factors will have levels, We can call table () which will give frequency count of how many of each level are there
+*unclass () function strips out the class for a vector
+*Order of levels can be set using levels argument in factors to understand baseline level: Need to tell explicitly tell r
+*Syntax<-factor(c("","","","",….""),levels=c("first level","second level") levels: first, second if not defined, assigned by system based on alphabetical order
+
+$\pagebreak$
+
+##Data Types-Missing Values
+*Special types of objects:
+* is.na() used to test object if they are NA
+*is.nan() used to test for undefined mathematical operations
+*NA values will have class too.
+###NAN value can be NA value, but NA value is not necessarily an NAN value
+*When we run is.na() or is.nan() r expression, the results displayed as logical values.
+
+$\pagebreak$
+
+##Data Types-Data Frames
+*To store tabular data
+###Data frames are special type of list where every element of that list has the same length
+*Every column should be of same length, no need to have same data type in column
+*Can store objects of different classes
+*Data frames has special attributes-row name; useful for annotating the data
+*Can be created by calling read.table/read.csv
+*Can create matrix from Data frame using function<-data.matrix() 'Warning':Object types should be same
+*x<-data.frame(column1 name=c(),columnname2=c()) check number of rows and columns suing nrow() and  ncol() respectively 
+
+$\pagebreak$
+
+##Data Types-The names Attribute
+*R objects can also have names, useful for writing readable code and self describing objects
+*Elements can have names x<-c(1:3) names(x)<-("","","')
+*List also can have names.<-list(a=1,b=2,c=3)
+*Matrix also can have names these are called 'dim names'  using list function
+*dimnames()<-list(c(row names "",""),c(column names"",""))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
