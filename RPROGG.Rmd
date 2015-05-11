@@ -174,6 +174,149 @@ $\pagebreak$
 *Matrix also can have names these are called 'dim names'  using list function
 *dimnames()<-list(c(row names "",""),c(column names"",""))
 
+##Reading Tabular Data
+*read.table,read.csv for tabular data
+*data<-read.table("input.txt",sep=,Header=T)
+*data
+*data1<-read.csv("input.csv")
+*data1
+*readLines for reading text files
+*dget, for reading in Rcode files
+*source function will read R code files into R
+*load/unserialize to read binary functions into R
+*syntax for read.table (file, header = TRUE, sep = "",colClasses = , nrows = , comment.char = ,  stringsAsFactors = ,skip = FALSE)
+*read.csv similar to read.table; only difference is the default separator is comma; in contrast to read.table where is it space.
+*Other difference is read.csv always specifies HEADER to be true.
+
+
+##Reading Large Tables
+*in order to prevent R choking in memory usage because of large data sets, need to go for rough calculation of memory requirement.
+* keep complete syntax information of read.table through help features
+*Define ColClasses for read.table; this will avoid r to run through all columns and defining classes itself, which usually consume more time and memory
+*If large data sets are present define nrows  argument to read first 100 or 1000 rows then looping over each of the columns by sapply function
+*data2<-read.table("inputLargeData.txt",sep=,header=T,nrows=100)#If large data sets are present define nrows  argument to read first 100 or 1000 rows
+*classes<-sapply(data2,class) #Define classes by using sapply as function
+*tabALL<-read.table("inputLargeData.txt",sep=,header=T,colClasses=classes)#looped and table imported for all data
+*Knowing our system: *How much memory availabl?e,what applications are in use?,are there any other users logged in?,OS?is it 32 or 64 bit?
+*Calculating RAM for reading data sets into R
+*nrows=15,00,000; ncol=120 for a data frame how much memroy required???
+*15,00,000 x 120 x 8bytes/numeric -- if all columns are numeric
+*1440000000bytes
+*1440000000/1073741824 GB
+*1.34 GB of raw storage memory used
+*Finally it needs 2.68 GB RAM required as it takes double the space of data size to read into R
+
+##Textual Data Formats: dput () and dump ()
+*They are like metadata information which can be stored in R
+*Adv: it is textual format and contains metadata information because textual formats are very nice format to store data in R
+*They are editable, Track changes in versions like for git…
+*Dis adv: tend to take lot of space3
+*dput function takes an arbitrary R object except for some more exotic ones; Writes R code and essentially reconstruct the object in R
+*dput function used to parse single R object
+*x<-data.frame(a=1,b=2)
+*dput(x)
+*dput(x,file="x.R")
+*new.x<-dget("x.R")
+*new.x
+*dput and dget together; dump and source together
+*dump function used to deparse multiple R objects
+*x<-"foo"
+*y<-data.frame(a=1,b=2)
+*dump(c("x","y"),file="data.R")
+*rm(x,y)
+*source("data.R")
+*y
+*x
+
+
+##Connections:Interfaces to the outside world
+*Common type of connection is function file (read.table or read.csv or url connection)
+*abstracts to outside world to connect and get objects into R
+*gzfile and bzfile to open compressed files
+*gzfile>files compressed with gzip algorthm (gz extension) and bzfile>files compressed with bzip2 algorithm (bz2 extension)
+*open is code indicating "r" read only, "w" writing, "a" appending, "rb","wb","ab" reading,writing or appending in binary mode
+*readdLines function reads lines from a file
+*url function is to creating connection to a kind of non file object
+
+
+##Subsetting R Objects-Basics
+*`[]` = always returns object of same class, can select more than one element of an object [1;2]
+*if you subset a vector, vector is retrieved; if you subset a list, list is retrieved
+* `[[]]` = can extract one element from list or data frame, returned object not necessarily list/dataframe
+*class of the object retrieved is not necessarily be list or a data frame
+* `$` = can extract elements from list/dataframe that have names associated with it, not necessarily same class
+*y<-c("a","b","c","c","d","a")# character vector
+*class(y)
+*# sub setting using numeric index
+*y[1]# first element we get character vector
+*y[2]# second element we get character vector
+*y[1:4]#sequence of element we get character vector
+*# sub setting using logical index
+*y[y>"a"]#letter greater than a; this is used as there is lexicographical orderto the letters
+*u<-y>"a" #creating logical vector using elements of y
+*u#returns elements explained as logical indices (TRUE/FALSE)
+*y[u]##returns elements letter greater than a;
+*y[c(1,3)]#returns first and third element
+*y[-c(1,3)]#returns all elements except first and third element
+
+##Subsetting R Objects-Lists
+*listing is little bit difficult as we can use `[[]]` or `$` and can also use `[]`
+*z <- list(foo = 1:4, bar = 0.6)
+*class(z)#"class list"
+*class(z$foo)#"class integer"
+*class(z$bar)#"class numeric"
+*z[1]# List with sequence of 1,2,3,4
+*z[[1]]# sequence of 1,2,3,4
+*z[2]# List with element 0.6
+*z[[2]]# element 0.6
+*z[1,2]#Error in z[1, 2] : incorrect number of dimensions
+*z[c(1,2)]#List with sequence of 1,2,3,4 and List with element 0.6
+*z[[1,2]]# Error in z[[1, 2]] : incorrect number of subscripts
+*we can index the list with names… Names is as result of some computation
+*v<-list(foo = 1:4, bar = 0.6, baz="hello")
+*name<-"foo"
+*v[name]# List with sequence of 1,2,3,4
+*v[[name]]# sequence of 1,2,3,4
+*v$name#NULL element name does not exist
+*v$foo # sequence of 1,2,3,4
+###Subsetting Nested Elements of a list
+* m<-list(a=list(10,12,14),b=c(3.14,2.81))
+*class(m)
+*m[[c(1,3)]]# third element of first object is printed
+*m[[1]][[3]]# third element of first object is printed
+*m[[c(2,1)]]# first element of second object is printed
+*m[[c(2,3)]]#Error in m[[c(2, 3)]] : subscript out of bounds
+
+##Subsetting a Matrix
+*n<-matrix(1:6,2,3)
+*n # 2 by 3 matix
+*n[1,2] # element positioned in 1st row,second column
+*n[1,]#all elements positioned in 1st row
+*n[,1]#all elements positioned in 1st column
+*n[1,2,drop=FALSE]# adding subsetting operator if we need matrix as output; drop=TRUE removes dimension, drop=FALSE adds dimension
+*n[1,,drop=FALSE]#one by three matrix
+*n[,1,drop=FALSE]#two by two matrix
+
+
+##Subsetting R objects-Subsetting with Names
+*Partial Matching save typing at command line
+*It operates on $ and [[]].
+*x<-list(bbdard=1:6)
+*x$b # Short source, list all objects of x
+*x[["b"]]# this is null 
+*x[["b",exact=FALSE]]# Passing second argument exact as FALSE retrieves list all objects of x
+
+##Subsetting-Removing Missing Value
+* **Removing NA Values**
+    * `is.na()` = creates logical vector where T is where value exists, F is NA
+        * subsetting with the above result can return only the non NA elements
+    * `complete.cases(obj1, obj2)` = creates logical vector where `TRUE` is where both values exist, and `FALSE` is where any is NA
+        * can be used on data frames as well
+        * `complete.cases(data.frame)` = creates logical vectors indicating which observation/row is good
+        * `data.frame[logicalVector, ]` = returns all observations with complete data
+
+* **Imputing Missing Values** = replacing missing values with estimates (can be averages from all other data with the similar conditions)
+
 
 
 
